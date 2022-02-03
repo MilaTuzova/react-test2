@@ -3,11 +3,14 @@ import { AiFillEnvironment, AiFillAudio } from 'react-icons/ai';
 import { IoIosAlarm } from 'react-icons/io';
 import { formatEventStart } from 'utils';
 import { formatEventDuration } from 'utils';
+//import { formatEventDistans } from 'utils';
 
 import css from './Event.module.css';
 
 export const Event = ({ name, location, speaker, type, start, end }) => {
   const formattedStartTime = formatEventStart(start);
+  const formattedDurationTime = formatEventDuration(start, end);
+  //const formattedDistansTime = formatEventDistans(start, end);
 
   return (
     <div className={css.event}>
@@ -26,7 +29,8 @@ export const Event = ({ name, location, speaker, type, start, end }) => {
       </p>
       <p className={css.info}>
         <IoIosAlarm className={css.icon} color="red" />
-        {end}
+        {formattedDurationTime}
+        {/*{formattedDistansTime}*/}
       </p>
       {/*<span className={`${css.chip} ${css[type]}`}>{type}</span>*/}
     </div>
